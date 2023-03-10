@@ -4,7 +4,7 @@ $this->layout('template', ['title' => 'Palaute']);
 $palaute = haePalaute();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Insert the new feedback entry
+
   $name = $_POST['name'];
   $feedback_text = $_POST['feedback_text'];
   $date_time = date('Y-m-d H:i:s');
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $params = [$name, $feedback_text, $date_time];
   DB::run($query, $params);
 
-  // Get the latest feedback entries again
+ 
   $palaute = haePalaute();
 }
 
